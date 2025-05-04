@@ -1,0 +1,62 @@
+oh-my-posh init pwsh --config "C:\Users\bachcanhky\AppData\Local\Programs\oh-my-posh\themes\huvix.omp.json" | Invoke-Expression
+
+
+# Add all files
+function ga { git add . }
+
+# Commit with message (hỗ trợ dấu cách)
+function gcmm { param([string]$msg); git commit -m "$msg" }
+
+# Commit amend (sửa commit gần nhất)
+function gca { param([string]$msg); git commit --amend -m "$msg" }
+
+# Status
+function gs { git status }
+
+# Branch list
+function gb { git branch }
+
+# All branches
+function gba { git branch -a }
+
+# Checkout (chuyển nhánh)
+function gco { param([string]$branch); git checkout "$branch" }
+
+# Checkout main
+function gcom { git checkout main }
+
+# Checkout master
+function gcoms { git checkout master}
+
+# Create + checkout branch
+function gcb { param([string]$name); git checkout -b "$name" }
+
+# Pull
+function gpll { git pull }
+
+# Push
+function gpsh { git push }
+
+# Push with upstream
+function gpu { git push -u origin (git branch --show-current) }
+
+# Fetch
+function gf { git fetch }
+
+# Diff
+function gd { git diff }
+
+# Log đẹp
+function gll { git log --oneline --graph --all --decorate }
+
+# Stash
+function gst { git stash }
+
+# Restore all files
+function grs { git restore . }
+
+# Reset last commit (giữ file)
+function grh { git reset HEAD~1 }
+
+# Clone repo
+function gcl { param([string]$url); git clone "$url" }
