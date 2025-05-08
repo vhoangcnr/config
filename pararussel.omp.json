@@ -5,9 +5,34 @@
       "alignment": "left",
       "segments": [
         {
+          "foreground": "#ffffff",
           "style": "plain",
-          "template": "😹💪<#FF8000> Siuuu ! You got it ! What should you do next ? ...</>",
+          "template": ">_ ",
           "type": "text"
+        },
+        {
+          "foreground": "#ffffff",
+          "properties": {
+            "style": "folder"
+          },
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "#D0666F",
+          "properties": {
+            "branch_icon": ""
+          },
+          "style": "plain",
+          "template": "<#5FAAE8>(</>{{ .HEAD }}<#5FAAE8>) </>",
+          "type": "git"
+        },
+        {
+          "foreground": "#DCB977",
+          "style": "plain",
+          "template": " \uf119 ",
+          "type": "status"
         }
       ],
       "type": "prompt"
@@ -16,41 +41,18 @@
       "alignment": "right",
       "segments": [
         {
-          "foreground": "#93cdd4",
+          "foreground": "#ffffff",
           "properties": {
-            "style": "folder"
+            "command": "git log --pretty=format:%cr -1 || date +%H:%M:%S",
+            "shell": "bash"
           },
           "style": "plain",
-          "template": " {{ .Path }} ",
-          "type": "path"
-        },
-        {
-          "foreground": "#D0666F",
-          "properties": {
-            "branch_icon": "",
-            "fetch_status": false
-          },
-          "style": "plain",
-          "template": "<#5FAAE8>(</>{{ .HEAD }}<#5FAAE8>)</>",
-          "type": "git"
-        }
-
-      ],
-      "type": "prompt"
-    },
-    {
-      "alignment": "left",
-      "segments": [
-        {
-          "foreground": "#FF8000",
-          "style": "plain",
-          "template": "👍👀<#FF8000> >_ </>",
-          "type": "text"
+          "template": "{{ .Output }} ",
+          "type": "command"
         }
       ],
       "type": "prompt"
     }
   ],
-  "post_prompt": "\n",
   "version": 3
 }
